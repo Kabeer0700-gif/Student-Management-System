@@ -10,11 +10,15 @@ class Student:
     def display(self):
         print(
             "\n-----------------Student Information---------------------\n"
-            f"ID: {self.student_id}"
-            f"Name: {self.name}"
-            f"Age: {self.age}"
-            f"CGPA: {self.cgpa}"
-            f"Department: {self.department}"
-            f"Email: {self.email}"
+            f"ID: {self.student_id}\n"
+            f"Name: {self.name}\n"
+            f"Age: {self.age}\n"
+            f"CGPA: {self.cgpa}\n"
+            f"Department: {self.department}\n"
+            f"Email: {self.email}\n"
         )
-        
+
+    
+    def to_dict(self):
+        return self.__dict__
+    
