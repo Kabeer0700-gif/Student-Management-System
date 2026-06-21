@@ -7,4 +7,14 @@ class Student:
         self.department = department
         self.email = email
 
+    def display(self):
+        print(
+            "\n-----------------Student Information---------------------\n"
+            f"ID: {self.student_id}"
+            f"Name: {self.name}"
+            f"Age: {self.age}"
+            f"CGPA: {self.cgpa}"
+            f"Department: {self.department}"
+            f"Email: {self.email}"
+        )
         
