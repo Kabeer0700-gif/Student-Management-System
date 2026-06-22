@@ -52,6 +52,32 @@ class Manager:
         return False
     
 
+    @classmethod
+    def update_student(cls,id):
+        name = input("Enter updated name: ")
+        department = input("Enter updated department: ")
+        age = input("Enter updated age: ")
+        cgpa = input("Enter updated cgpa: ")
+        email = input("Enter updated email: ")
+
+        for i,student in enumerate(cls.students):
+            if cls.students[i].student_id == id:
+                cls.students[i].updateName(name)
+                cls.students[i].updateDepartment(department)
+                cls.students[i].updateAge(age)
+                cls.students[i].updateCGPA(cgpa)
+                cls.students[i].updateEmail(email)
+
+                print("Student updated with id: ",id)
+
+                break
+
+    @classmethod
+    def count_student(cls):
+        return len(cls.students)
+    
+
+
                 
 
 
