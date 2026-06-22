@@ -1,81 +1,84 @@
 class Manager:
-    students = []
-    @classmethod
-    def add_student(cls,std):
-        cls.students.append(std)
+    
+    def __init__(self):
+        self.students = []
+
+    def add_student(self,std):
+        self.students.append(std)
         print(
             f"added student with student id: {std.student_id}"
         )
 
     
-    @classmethod
-    def view_student(cls):
+    
+    def view_student(self):
         print("------------- STUDENT INFORMATION ------------------")
-        for i,student in enumerate(cls.students):
+        for i,student in enumerate(self.students):
             print(
                 f"Sno: {i+1}\n"
-                f"ID: {cls.students[i].student_id}\n"
-                f"Name: {cls.students[i].name}\n"
-                f"Age: {cls.students[i].age}\n"
-                f"Department: {cls.students[i].department}\n"
-                f"CGPA: {cls.students[i].cgpa}\n"
-                f"Email: {cls.students[i].email}\n"
+                f"ID: {self.students[i].student_id}\n"
+                f"Name: {self.students[i].name}\n"
+                f"Age: {self.students[i].age}\n"
+                f"Department: {self.students[i].department}\n"
+                f"CGPA: {self.students[i].cgpa}\n"
+                f"Email: {self.students[i].email}\n"
             )
 
             print("------------------------------------------------")
 
 
-    @classmethod
-    def search_student(cls,id):
-        for i,student in enumerate(cls.students):
-            if cls.students[i].student_id == id:
+    
+    def search_student(self,id):
+        for i,student in enumerate(self.students):
+            if self.students[i].student_id == id:
                 print(
-                    f"ID: {cls.students[i].student_id}\n"
-                    f"Name: {cls.students[i].name}\n"
-                    f"Age: {cls.students[i].age}\n"
-                    f"Department: {cls.students[i].department}\n"
-                    f"CGPA: {cls.students[i].cgpa}\n"
-                    f"Email: {cls.students[i].email}\n"
+                    f"ID: {self.students[i].student_id}\n"
+                    f"Name: {self.students[i].name}\n"
+                    f"Age: {self.students[i].age}\n"
+                    f"Department: {self.students[i].department}\n"
+                    f"CGPA: {self.students[i].cgpa}\n"
+                    f"Email: {self.students[i].email}\n"
                 )
                 print("")
 
                 break
 
     
-    @classmethod
-    def delete_student(cls,id):
-        for i,student in enumerate(cls.students):
-            if cls.students[i].student_id == id:
-                del cls.students[i]
+    
+    def delete_student(self,id):
+        for i,student in enumerate(self.students):
+            if self.students[i].student_id == id:
+                del self.students[i]
                 return True
         
         return False
     
 
-    @classmethod
-    def update_student(cls,id):
+    
+    def update_student(self,id):
         name = input("Enter updated name: ")
         department = input("Enter updated department: ")
         age = input("Enter updated age: ")
         cgpa = input("Enter updated cgpa: ")
         email = input("Enter updated email: ")
 
-        for i,student in enumerate(cls.students):
-            if cls.students[i].student_id == id:
-                cls.students[i].updateName(name)
-                cls.students[i].updateDepartment(department)
-                cls.students[i].updateAge(age)
-                cls.students[i].updateCGPA(cgpa)
-                cls.students[i].updateEmail(email)
+        for i,student in enumerate(self.students):
+            if self.students[i].student_id == id:
+                self.students[i].updateName(name)
+                self.students[i].updateDepartment(department)
+                self.students[i].updateAge(age)
+                self.students[i].updateCGPA(cgpa)
+                self.students[i].updateEmail(email)
 
                 print("Student updated with id: ",id)
 
                 break
 
-    @classmethod
-    def count_student(cls):
-        return len(cls.students)
     
+    def count_student(self):
+        return len(self.students)
+    
+
 
 
                 
