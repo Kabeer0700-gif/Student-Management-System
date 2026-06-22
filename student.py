@@ -7,6 +7,21 @@ class Student:
         self.department = department
         self.email = email
 
+    def updateName(self,newName):
+        self.name = newName
+
+    def updateDepartment(self,newDept):
+        self.department = newDept
+
+    def updateAge(self,newAge):
+        self.age = newAge
+
+    def updateCGPA(self,cgpa):
+        self.cgpa = cgpa
+
+    def updateEmail(self,newEmail):
+        self.email = newEmail
+        
     def display(self):
         print(
             "\n-----------------Student Information---------------------\n"
