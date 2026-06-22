@@ -20,39 +20,49 @@ class Manager:
             print("------------------------------------------------")
 
 
-    
-    def search_student(self,id):
+    def get_student(self,id):
         for student in self.students:
             if student.student_id == id:
-                student.display()
-                print("")
+                return student
+        
+        return None
 
-                break
+    def search_student(self,id):
+        student = self.get_student(id)
+        if student:
+            student.display()
+            print("")
+        else:
+            print(f"No student found with id {id}")
+            
 
     
     
     def delete_student(self,id):
-        for student in self.students:
-            if student.student_id == id:
-                self.students.remove(student)
-                return True
+        student = self.get_student(id)
+        if student:
+            self.students.remove(student)
+            return True
         
         return False
     
 
     
     def update_student(self,id,name,department,age,cgpa,email):
-        for student in self.students:
-            if  student.student_id == id:
-                student.updateName(name)
-                student.updateDepartment(department)
-                student.updateAge(age)
-                student.updateCGPA(cgpa)
-                student.updateEmail(email)
+        student = self.get_student(id)
+        if  student:
+            student.updateName(name)
+            student.updateDepartment(department)
+            student.updateAge(age)
+            student.updateCGPA(cgpa)
+            student.updateEmail(email)
 
-                print("Student updated with id: ",id)
-
-                break
+            print("Student updated with id: ",id)
+            print("")
+        else:
+            print(f"No student found with id {id}")
+            print("")
+            
 
     
     def count_student(self):
