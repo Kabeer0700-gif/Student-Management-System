@@ -1,5 +1,4 @@
 from manager import Manager
-from exception import DuplicateStudentID,InvalidCGPA,StudentNotFound
 from storage import Storage
 from student import Student
 
@@ -36,3 +35,26 @@ while True:
 
         case '2':
             manager.view_student()
+
+        case '3':
+            id = int(input("\nEnter id: "))
+            student = manager.search_student(id)
+            if student:
+                student.display()
+            else:
+               print("No Student found with id: ",id)
+
+        case '4':
+            id = int(input("\nEnter id: "))
+            student = manager.search_student(id)
+            if student:
+                name = input("Enter new name: ")
+                age = input("Enter new age: ")
+                department = input("Enter new department: ")
+                email = input("Enter new email: ")
+                cgpa = input("Enter new cgpa: ")
+                manager.update_student(student,name,department,age,cgpa,email)
+                print(f"\nstudent with id {id} updated successfully")
+            else:
+                print("No Student found with id: ",id)
+            
