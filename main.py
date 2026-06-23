@@ -57,4 +57,32 @@ while True:
                 print(f"\nstudent with id {id} updated successfully")
             else:
                 print("No Student found with id: ",id)
+
+        case '5':
+            id = int(input("\nEnter id:"))
+            check = manager.delete_student(id)
+            if check:
+                print(f"Student with id : {id} Deleted Successfully")
+            else:
+                print(f"Student with id:{id} Not FOund")
+
+        case '6':
+            sorted_students_cgpa = manager.sort_by_cgpa()
+            print("\n------------------- Student with Highest CGPA ----------------------\n")
+            if sorted_students_cgpa:
+                for student in sorted_students_cgpa:
+                    student.display()
+            else:
+                print("Student Not Added Yet !!!")
+
+
+        case '7':
+            sorted_students_name = manager.sort_by_name()
+            print("\n------------------- Student in Alphabatical Order ----------------------\n")
+            if sorted_students_name:
+                for student in sorted_students_name:
+                    student.display()
+            else:
+                print("Student Not Added Yet !!!")
+
             

@@ -24,7 +24,6 @@ class Student:
         
     def display(self):
         print(
-            "\n-----------------Student Information---------------------\n"
             f"ID: {self.student_id}\n"
             f"Name: {self.name}\n"
             f"Age: {self.age}\n"
