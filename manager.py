@@ -1,12 +1,20 @@
+from exception import DuplicateStudentID,StudentNotFound,InvalidCGPA
 class Manager:
     
     def __init__(self):
         self.students = []
 
-    def add_student(self,std):
-        self.students.append(std)
+    def add_student(self,student):
+        for std in self.students:
+            if std.student_id == student.student_id:
+
+                raise DuplicateStudentID (
+                    f"Student with id:{student.student_id} already exist"
+                )
+            
+        self.students.append(student)
         print(
-            f"added student with student id: {std.student_id}"
+            f"added student with student id: {student.student_id}"
         )
 
     
@@ -59,26 +67,26 @@ class Manager:
         return len(self.students)
     
     def sort_by_cgpa(self):
-        sorted_students = sorted(
-            self.students,
-            key = lambda student:student.cgpa,
-            reverse=True
-        )
-        print("-------------- Students with highest cgpa ----------------")
-        for student in sorted_students:
-            print(
-                f"{student.name}\t{student.cgpa}"
+        if self.count_student() != 0:
+            sorted_students = sorted(
+                self.students,
+                key = lambda student:student.cgpa,
+                reverse=True
             )
+            
+            return sorted_students
+        else:
+            return None
 
 
     def sort_by_name(self):
-        sorted_students = sorted(
-            self.students,
-            key = lambda student:student.name
-        )
-
-        print("-------------- Students in Alphabatecal Order ----------------")
-        for student in sorted_students:
-            print(
-                f"{student.name}\t{student.cgpa}"
+        if self.count_student() != 0:
+            sorted_students = sorted(
+                self.students,
+                key = lambda student:student.name
             )
+
+            return sorted_students
+
+        else:
+            return None
