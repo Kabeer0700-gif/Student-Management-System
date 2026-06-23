@@ -1,16 +1,17 @@
 import json
 
 class Storage:
-    def save_student(self,student):
-        dic = student.to_dict()
-
-        try:
-            with open('students.json','w') as file:
-                json.dump(dic,file)
-        except FileNotFoundError:
-            print("File Error")
-
-    def load_student(self):
+    @staticmethod
+    def save_student(students):
+        data = [
+             student.to_dict()
+             for student in students
+        ]
+        with open('students.json','w') as file:
+                json.dump(data,file,indent=4)
+        
+    @staticmethod
+    def load_student():
         try:
             with open('students.json','r') as file:
                 data = json.load(file)
@@ -18,5 +19,5 @@ class Storage:
             return data
         
         except FileNotFoundError:
-            print("file not found")
-            
+            return []
+
