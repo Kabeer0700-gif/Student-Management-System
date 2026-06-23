@@ -30,10 +30,9 @@ class Manager:
     def search_student(self,id):
         student = self.get_student(id)
         if student:
-            student.display()
-            print("")
+            return student
         else:
-            print(f"No student found with id {id}")
+            return None
             
 
     
@@ -48,23 +47,14 @@ class Manager:
     
 
     
-    def update_student(self,id,name,department,age,cgpa,email):
-        student = self.get_student(id)
-        if  student:
-            student.updateName(name)
-            student.updateDepartment(department)
-            student.updateAge(age)
-            student.updateCGPA(cgpa)
-            student.updateEmail(email)
+    def update_student(self,student,name,department,age,cgpa,email):
+        student.updateName(name)
+        student.updateDepartment(department)
+        student.updateAge(age)
+        student.updateCGPA(cgpa)
+        student.updateEmail(email)
 
-            print("Student updated with id: ",id)
-            print("")
-        else:
-            print(f"No student found with id {id}")
-            print("")
-            
 
-    
     def count_student(self):
         return len(self.students)
     
@@ -92,14 +82,3 @@ class Manager:
             print(
                 f"{student.name}\t{student.cgpa}"
             )
-
-
-
-    
-
-
-
-                
-
-
-
