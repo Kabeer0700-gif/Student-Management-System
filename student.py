@@ -35,5 +35,23 @@ class Student:
 
     
     def to_dict(self):
-        return self.__dict__
+        return {
+            "student_id":self.student_id,
+            "name":self.name,
+            "age":self.age,
+            "department":self.department,
+            "cgpa":self.cgpa,
+            "email":self.email
+        }
     
+
+    @classmethod
+    def from_dict(cls,data):
+        return cls(
+            data['student_id'],
+            data['name'],
+            data['age'],
+            data['department'],
+            data['cgpa'],
+            data['email'],
+        )
