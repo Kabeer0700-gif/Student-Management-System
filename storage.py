@@ -10,3 +10,13 @@ class Storage:
         except FileNotFoundError:
             print("File Error")
 
+    def load_student(self):
+        try:
+            with open('students.json','r') as file:
+                data = json.load(file)
+
+            return data
+        
+        except FileNotFoundError:
+            print("file not found")
+            
