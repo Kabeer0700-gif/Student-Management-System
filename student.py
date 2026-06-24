@@ -50,7 +50,7 @@ class Student:
             data['student_id'],
             data['name'],
             data['age'],
-            data['department'],
             data['cgpa'],
+            data['department'],
             data['email'],
         )
