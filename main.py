@@ -4,6 +4,10 @@ from student import Student
 
 
 manager = Manager()
+data = Storage.load_student()
+for student_data in data:
+    student = Student.from_dict(student_data)
+    manager.students.append(student)
 
 while True:
     print("\n================== STUDENT MANAGEMENT SYSTEM =====================")
@@ -24,9 +28,9 @@ while True:
         case '1':
             id = int(input("Enter id: "))
             name = input("Enter Name: ")
-            age = input("Enter Age: ")
+            age = int(input("Enter Age: "))
             department = input("Enter Department: ")
-            cgpa = input("Enter CGPA: ")
+            cgpa = float(input("Enter CGPA: "))
             email = input("Enter email: ")
             student = Student(id,name,age,cgpa,department,email)
             manager.add_student(student)
@@ -49,10 +53,10 @@ while True:
             student = manager.search_student(id)
             if student:
                 name = input("Enter new name: ")
-                age = input("Enter new age: ")
+                age = int(input("Enter new age: "))
                 department = input("Enter new department: ")
                 email = input("Enter new email: ")
-                cgpa = input("Enter new cgpa: ")
+                cgpa = float(input("Enter new cgpa: "))
                 manager.update_student(student,name,department,age,cgpa,email)
                 print(f"\nstudent with id {id} updated successfully")
             else:
@@ -85,4 +89,19 @@ while True:
             else:
                 print("Student Not Added Yet !!!")
 
-            
+        case '8':
+            count_student = manager.count_student()
+            if count_student == 0:
+                print("OOPs no student added yet !!")
+            else:
+                print(f"Total Student: {count_student}")
+
+        case '9':
+            Storage.save_student(manager.students)
+            print("Data saved successfully!")
+
+        case '0':
+            Storage.save_student(manager.students)
+            print("Data saved. Exiting...")
+            break
+        
