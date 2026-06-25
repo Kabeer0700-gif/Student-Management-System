@@ -1,10 +1,17 @@
-from exception import InvalidCGPA
+from exception import InvalidCGPA,InvalidEmail
+import re
 class Student:
     def __init__(self,student_id,name,age,cgpa,department,email):
         if not  0<= cgpa <=4:
             raise InvalidCGPA(
                 "CGPA must be between 0 and 4"
             )
+
+        if not self.is_valid_email(email):
+            raise InvalidEmail(
+                f"'{email}' is not a valid email address."
+            )
+        
         self.student_id = student_id
         self.name = name
         self.age = age
@@ -59,3 +66,14 @@ class Student:
             data['department'],
             data['email'],
         )
+    
+    @staticmethod
+    def is_valid_email(email):
+
+        pattern = (
+        r"^[a-zA-Z0-9._%+-]+"
+        r"@[a-zA-Z0-9.-]+"
+        r"\.[a-zA-Z]{2,}$"
+        )
+
+        return re.match(pattern, email)

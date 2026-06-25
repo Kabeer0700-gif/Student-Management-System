@@ -1,7 +1,7 @@
 from manager import Manager
 from storage import Storage
 from student import Student
-from exception import DuplicateStudentID,StudentNotFound,InvalidCGPA
+from exception import DuplicateStudentID,StudentNotFound,InvalidCGPA,InvalidEmail
 
 
 manager = Manager()
@@ -36,15 +36,18 @@ while True:
 
             try:
                 student = Student(id,name,age,cgpa,department,email)
+                manager.add_student(student)
+                print("\n---------------Student Added Successfully-------------------")
+
             except InvalidCGPA as e:
                 print(e)
 
-            try:
-                manager.add_student(student)
+            except InvalidEmail as e:
+                print(e)
+
             except DuplicateStudentID as e:
                 print(e)
 
-            print("\n---------------Student Added Successfully-------------------")
 
         case '2':
             manager.view_student()

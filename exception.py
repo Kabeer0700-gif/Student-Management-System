@@ -7,3 +7,5 @@ class StudentNotFound(Exception):
 class InvalidCGPA(Exception):
     pass
 
+class InvalidEmail(Exception):
+    pass
