@@ -1,6 +1,7 @@
 from manager import Manager
 from storage import Storage
 from student import Student
+from exception import DuplicateStudentID,StudentNotFound,InvalidCGPA
 
 
 manager = Manager()
@@ -33,7 +34,10 @@ while True:
             cgpa = float(input("Enter CGPA: "))
             email = input("Enter email: ")
             student = Student(id,name,age,cgpa,department,email)
-            manager.add_student(student)
+            try:
+                manager.add_student(student)
+            except DuplicateStudentID as e:
+                print(e)
 
             print("\n---------------Student Added Successfully-------------------")
 
