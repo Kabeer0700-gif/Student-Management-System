@@ -33,7 +33,12 @@ while True:
             department = input("Enter Department: ")
             cgpa = float(input("Enter CGPA: "))
             email = input("Enter email: ")
-            student = Student(id,name,age,cgpa,department,email)
+            
+            try:
+                student = Student(id,name,age,cgpa,department,email)
+            except InvalidCGPA as e:
+                print(e)
+
             try:
                 manager.add_student(student)
             except DuplicateStudentID as e:

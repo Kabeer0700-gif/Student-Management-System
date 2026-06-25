@@ -1,9 +1,14 @@
+from exception import InvalidCGPA
 class Student:
     def __init__(self,student_id,name,age,cgpa,department,email):
+        if not  0<= cgpa <=4:
+            raise InvalidCGPA(
+                "CGPA must be between 0 and 4"
+            )
         self.student_id = student_id
         self.name = name
         self.age = age
-        self.cgpa = cgpa
+        self.cgpa = float(cgpa)
         self.department = department
         self.email = email
 
