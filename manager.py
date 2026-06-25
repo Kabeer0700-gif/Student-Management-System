@@ -33,7 +33,10 @@ class Manager:
             if student.student_id == id:
                 return student
         
-        return None
+        raise StudentNotFound(
+            f'Student with id {id} not found'
+            
+        )
 
     def search_student(self,id):
         student = self.get_student(id)

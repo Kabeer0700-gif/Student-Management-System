@@ -46,12 +46,12 @@ while True:
 
         case '3':
             id = int(input("\nEnter id: "))
-            student = manager.search_student(id)
-            if student:
+            try:
+                student = manager.search_student(id)
                 student.display()
-            else:
-               print("No Student found with id: ",id)
-
+            except StudentNotFound as e:
+                print(e)
+            
         case '4':
             id = int(input("\nEnter id: "))
             student = manager.search_student(id)
