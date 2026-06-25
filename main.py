@@ -33,7 +33,7 @@ while True:
             department = input("Enter Department: ")
             cgpa = float(input("Enter CGPA: "))
             email = input("Enter email: ")
-            
+
             try:
                 student = Student(id,name,age,cgpa,department,email)
             except InvalidCGPA as e:
@@ -52,10 +52,10 @@ while True:
         case '3':
             id = int(input("\nEnter id: "))
             try:
-                student = manager.search_student(id)
-                student.display()
+                 student = manager.search_student(id)
+                 student.display()
             except StudentNotFound as e:
-                print(e)
+                  print(e)
             
         case '4':
             id = int(input("\nEnter id: "))
