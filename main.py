@@ -37,7 +37,7 @@ while True:
             try:
                 student = Student(id,name,age,cgpa,department,email)
                 manager.add_student(student)
-                print("\n--------------- Student Added Successfully -------------------")
+                print("\n--------------- STUDENT ADDED  -------------------")
 
             except InvalidCGPA as e:
                 print(e)
